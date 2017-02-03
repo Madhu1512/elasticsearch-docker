@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.1.1
+FROM docker.elastic.co/elasticsearch/elasticsearch:5.2.0
 
 WORKDIR /usr/share/elasticsearch
 
