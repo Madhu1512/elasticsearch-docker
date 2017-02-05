@@ -8,5 +8,5 @@ The following plugins are added:
   - x-pack ( comes with official Elasticsearch Image)
   - ec2-discovery
   - S3 Repository
-  - ingest ( geoip and user-agent) plugins.
+  - Ingest ( geoip and user-agent) plugins.
 
