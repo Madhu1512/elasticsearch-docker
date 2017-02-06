@@ -9,3 +9,5 @@ RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch repository-s3
 # Install Ingest Plugins (GeoIP and UserAgent)
 RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch ingest-geoip
 RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch ingest-user-agent
+
+COPY es-docker bin/es-docker
