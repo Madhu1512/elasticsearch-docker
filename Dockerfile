@@ -1,13 +1,9 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.3.1
+FROM docker.elastic.co/elasticsearch/elasticsearch:5.4.0
+
+ARG ES_PLUGINS_INSTALL="discovery-ec2,repository-s3"
 
 WORKDIR /usr/share/elasticsearch
 
-# Install EC2 Discovery plugin and S3 repository plugin
-RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch discovery-ec2
-RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch repository-s3
-
-# Install Ingest Plugins (GeoIP and UserAgent)
-RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch ingest-geoip
-RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch ingest-user-agent
+RUN for plugins in $(echo $ES_PLUGINS_INSTALL | tr ',' '\n'); do elasticsearch-plugin install --batch "$plugins"; done
 
 COPY es-docker bin/es-docker
