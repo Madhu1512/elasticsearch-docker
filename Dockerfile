@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.6
+FROM docker.elastic.co/elasticsearch/elasticsearch-platinum:6.1.2
 
 ARG ES_PLUGINS_INSTALL="discovery-ec2,repository-s3"
 
@@ -6,7 +6,7 @@ USER root
 
 RUN sed -i s/#networkaddress.cache.ttl=-1/networkaddress.cache.ttl=30/ $JAVA_HOME/lib/security/java.security
 
-USER elasticsearch
+USER 1000
 
 WORKDIR /usr/share/elasticsearch
 
