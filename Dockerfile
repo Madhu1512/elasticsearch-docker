@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.3
+FROM docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.4
 
 ARG ES_PLUGINS_INSTALL="discovery-ec2,repository-s3"
 
